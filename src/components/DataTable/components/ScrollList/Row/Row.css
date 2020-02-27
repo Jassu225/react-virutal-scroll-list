@@ -50,12 +50,12 @@
 .custom-scroll-list-row-appear,
 .custom-scroll-list-row-enter {
     opacity: 0;
-    transform: translateX(-20px);
+    /* transform: translateX(-20px); */
 }
 
 .custom-scroll-list-row-appear.custom-scroll-list-row-appear-active,
 .custom-scroll-list-row-enter.custom-scroll-list-row-appear-enter {
     opacity: 1;
-    transform: translateX(0);
-    transition: opacity 500ms ease-in, transform 500ms ease-in;
+    /* transform: translateX(0); */
+    transition: opacity 500ms ease-in;
 }
