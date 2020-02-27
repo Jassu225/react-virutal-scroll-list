@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-virtual-scroll-list/static/css/main.ba092a25.chunk.css",
+    "main.js": "/react-virtual-scroll-list/static/js/main.db9d0d21.chunk.js",
+    "main.js.map": "/react-virtual-scroll-list/static/js/main.db9d0d21.chunk.js.map",
+    "runtime-main.js": "/react-virtual-scroll-list/static/js/runtime-main.743d1e7e.js",
+    "runtime-main.js.map": "/react-virtual-scroll-list/static/js/runtime-main.743d1e7e.js.map",
+    "static/js/2.ec93a0b6.chunk.js": "/react-virtual-scroll-list/static/js/2.ec93a0b6.chunk.js",
+    "static/js/2.ec93a0b6.chunk.js.map": "/react-virtual-scroll-list/static/js/2.ec93a0b6.chunk.js.map",
+    "index.html": "/react-virtual-scroll-list/index.html",
+    "precache-manifest.81bd78418630ec2be748efa7af86f907.js": "/react-virtual-scroll-list/precache-manifest.81bd78418630ec2be748efa7af86f907.js",
+    "service-worker.js": "/react-virtual-scroll-list/service-worker.js",
+    "static/css/main.ba092a25.chunk.css.map": "/react-virtual-scroll-list/static/css/main.ba092a25.chunk.css.map",
+    "static/js/2.ec93a0b6.chunk.js.LICENSE.txt": "/react-virtual-scroll-list/static/js/2.ec93a0b6.chunk.js.LICENSE.txt",
+    "static/media/loader.gif": "/react-virtual-scroll-list/static/media/loader.1d7626e6.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.743d1e7e.js",
+    "static/js/2.ec93a0b6.chunk.js",
+    "static/css/main.ba092a25.chunk.css",
+    "static/js/main.db9d0d21.chunk.js"
+  ]
+}
