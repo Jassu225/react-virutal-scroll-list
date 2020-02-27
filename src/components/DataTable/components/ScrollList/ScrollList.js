@@ -1,7 +1,11 @@
 import React, { useMemo, useEffect, useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import './ScrollList.css';
 import Row from './Row/Row';
 import { throttle } from 'lodash';
+import { getApiStatus } from '../../../../store/getters';
+import statusCodes from '../../../../api-service/status-codes';
+import Loader from '../Loader/Loader';
 
 function ScrollList(props) {
     // 1. calculate total number of rows
@@ -170,19 +174,27 @@ function ScrollList(props) {
         height: scrollHeight + 'px',
     };
 
+    const apiStatus = useSelector(state => getApiStatus(state));
+    const isFetching = useMemo(() => {
+        return apiStatus === statusCodes.requesting;
+    }, [apiStatus]);
+
     return (
         <div
             ref={outerParent}
             className="custom-scroll-list"
             onScroll={scrollHandler}
         >
-            <div
-                ref={scrollParent}
-                className="custom-scroll-container"
-                style={scrollParentStyle}
-            >
-                { visibleRows }
-            </div>
+            { isFetching ?
+                <Loader /> :
+                <div
+                    ref={scrollParent}
+                    className="custom-scroll-container"
+                    style={scrollParentStyle}
+                >
+                    { visibleRows }
+                </div>
+            }
         </div> 
     );
 }
