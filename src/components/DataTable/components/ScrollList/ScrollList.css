@@ -1,0 +1,10 @@
+.custom-scroll-list {
+    width: 100%;
+    height: calc(100% - 60px);
+    min-height: 300px;
+    overflow: auto;
+}
+
+.custom-scroll-container {
+    position: relative;
+}
