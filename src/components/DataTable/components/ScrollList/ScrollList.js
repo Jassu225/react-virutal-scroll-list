@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useMemo, useEffect, useState, useRef } from 'react';
 import './ScrollList.css';
 import Row from './Row/Row';
 import { throttle } from 'lodash';

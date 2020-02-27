@@ -1,10 +1,14 @@
-import { SET_DATA, SET_API_STATUS, ADD_TO_SELECTION_LIST, REMOVE_FROM_SELECTION_LIST } from './actionTypes';
+import { 
+  SET_DATA, SET_API_STATUS, ADD_TO_SELECTION_LIST, REMOVE_FROM_SELECTION_LIST,
+  SELECT_ALL, DESELECT_ALL,
+} from './actionTypes';
 import statusCodes from '../api-service/status-codes';
 
 const initialState = {
   list: [],
   apiStatus: statusCodes.notUsed,
   selections: [],
+  selectAll: false,
 };
 
 export default function(state = initialState, action) {
@@ -25,9 +29,11 @@ export default function(state = initialState, action) {
     }
     case ADD_TO_SELECTION_LIST: {
       const { id } = action.payload;
+      const newSelections = state.selections.concat([id]);
       return {
         ...state,
-        selections: state.selections.concat([id]),
+        selections: newSelections,
+        selectAll: state.list.length === newSelections.length,
       };
     };
     case REMOVE_FROM_SELECTION_LIST: {
@@ -40,8 +46,22 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selections,
+        selectAll: false,
       };
     };
+    case SELECT_ALL:
+      // console.log('all selected');
+      return {
+        ...state,
+        selectAll: true,
+        selections: state.list.map(selection => selection.id),
+      };
+    case DESELECT_ALL:
+      return {
+        ...state,
+        selectAll: false,
+        selections: [],
+      };
     default:
       return state;
   }

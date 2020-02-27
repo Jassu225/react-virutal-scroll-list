@@ -1,4 +1,7 @@
-import { SET_DATA, SET_API_STATUS, ADD_TO_SELECTION_LIST, REMOVE_FROM_SELECTION_LIST } from './actionTypes';
+import { 
+    SET_DATA, SET_API_STATUS, ADD_TO_SELECTION_LIST, REMOVE_FROM_SELECTION_LIST,
+    SELECT_ALL, DESELECT_ALL,
+} from './actionTypes';
 import { fetchListService } from '../api-service';
 
 export const setDataList = (data) => ({
@@ -19,6 +22,16 @@ export const addToSelections = (id) => ({
 export const removeFromSelections = (id) => ({
     type: REMOVE_FROM_SELECTION_LIST,
     payload: { id },
+});
+
+export const selectAll = () => ({
+    type: SELECT_ALL,
+    payload: {},
+});
+
+export const deselectAll = () => ({
+    type: DESELECT_ALL,
+    payload: {},
 });
 
 export const fetchList = () => {
