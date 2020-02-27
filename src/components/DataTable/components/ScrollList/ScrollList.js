@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import './ScrollList.css';
 import Row from './Row/Row';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 import { getApiStatus } from '../../../../store/getters';
 import statusCodes from '../../../../api-service/status-codes';
 import Loader from '../Loader/Loader';
