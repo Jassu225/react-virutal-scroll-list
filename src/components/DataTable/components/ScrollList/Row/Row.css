@@ -3,6 +3,9 @@
     box-sizing: border-box;
     padding: 0 10px;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .custom-scroll-list-row-container:hover {
@@ -40,4 +43,19 @@
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
+}
+
+/* transtions */
+
+.custom-scroll-list-row-appear,
+.custom-scroll-list-row-enter {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.custom-scroll-list-row-appear.custom-scroll-list-row-appear-active,
+.custom-scroll-list-row-enter.custom-scroll-list-row-appear-enter {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
 }

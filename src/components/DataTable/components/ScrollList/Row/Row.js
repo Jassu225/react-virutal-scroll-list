@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './Row.css';
 import { addToSelections, removeFromSelections } from '../../../../../store/actions';
 import { getSelections } from '../../../../../store/getters';
+import { CSSTransition } from 'react-transition-group';
 
 function Row(props) {
     const dispatch = useDispatch();
@@ -53,14 +54,25 @@ function Row(props) {
             style={style}
             onClick={onClick}
         >
-            <div className="custom-scroll-list-row">
-                <div className="custom-scroll-list-row-checkbox">
-                    <input type="checkbox" checked={isSelected} onChange={onSelectionChange}></input>
+            <CSSTransition
+                classNames="custom-scroll-list-row"
+                timeout={500}
+                in={true}
+                appear={true}
+                exit={false}
+            >
+                <div
+                    className="custom-scroll-list-row"
+                    key={props.data.id}
+                >
+                    <div className="custom-scroll-list-row-checkbox">
+                        <input type="checkbox" checked={isSelected} onChange={onSelectionChange} />
+                    </div>
+                    <div className="custom-scroll-list-row-cells">
+                        { cells }
+                    </div>
                 </div>
-                <div className="custom-scroll-list-row-cells">
-                    { cells }
-                </div>
-            </div>
+            </CSSTransition>
         </div>
     );
 }
