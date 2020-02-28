@@ -8,3 +8,8 @@
 .custom-scroll-container {
     position: relative;
 }
+
+.custom-scroll-list,
+.custom-scroll-container {
+    background-color: #4e4e50;
+}

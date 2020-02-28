@@ -1,12 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Row.css';
 import { addToSelections, removeFromSelections } from '../../../../../store/actions';
 import { getSelections } from '../../../../../store/getters';
 import { CSSTransition } from 'react-transition-group';
+import ToggleButton from '../../ToggleButton/ToggleButton';
 
 function Row(props) {
     const dispatch = useDispatch();
+    const rowEl = useRef();
     const cells = props.columns.map((column) => {
         const style = {
             width: column.width,
@@ -31,7 +33,7 @@ function Row(props) {
     const selectionList = useSelector(state => getSelections(state));
     
     const isSelected = useMemo(() => {
-        console.log(selectionList);
+        // console.log(selectionList);
         return selectionList.includes(props.data.id);
     }, [props.data.id, selectionList]);
     // onRowClick
@@ -39,14 +41,14 @@ function Row(props) {
 
     };
 
-    const onSelectionChange = (event) => {
+    const onSelectionChange = (isActive) => {
         // console.log(event.target.checked);
-        if (event.target.checked) {
+        if (isActive) {
             dispatch(addToSelections(props.data.id));
         } else {
             dispatch(removeFromSelections(props.data.id));
         }
-        props.onSelectionChange(event.target, props.data, props.index);
+        props.onSelectionChange(rowEl, props.data, props.index);
     };
     return (
         <div
@@ -64,12 +66,19 @@ function Row(props) {
                 <div
                     className="custom-scroll-list-row"
                     key={props.data.id}
+                    ref={rowEl}
                 >
-                    <div className="custom-scroll-list-row-checkbox">
-                        <input type="checkbox" checked={isSelected} onChange={onSelectionChange} />
-                    </div>
                     <div className="custom-scroll-list-row-cells">
                         { cells }
+                    </div>
+                    <div className="custom-scroll-list-row-checkbox">
+                        {/* <input type="checkbox" checked={isSelected} onChange={onSelectionChange} /> */}
+                        <ToggleButton
+                            active={isSelected}
+                            activeLabel="Remove"
+                            label="Select"
+                            onChange={onSelectionChange}
+                        />
                     </div>
                 </div>
             </CSSTransition>
