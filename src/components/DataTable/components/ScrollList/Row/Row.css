@@ -8,6 +8,10 @@
     justify-content: center;
 }
 
+/* .custom-scroll-list-row-container.active {
+    background-color: #404040;
+} */
+
 .custom-scroll-list-row-container:hover {
     background-color: #424242;
     transform: scale(1.01, 1.05);
@@ -22,6 +26,10 @@
     border-bottom: 1px solid #2b2b2b;
     cursor: pointer;
     color: whitesmoke;
+}
+
+.custom-scroll-list-row-container.active .custom-scroll-list-row {
+    color: grey;
 }
 
 .custom-scroll-list-row:hover {

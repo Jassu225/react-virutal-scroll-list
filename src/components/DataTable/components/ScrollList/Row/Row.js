@@ -50,9 +50,13 @@ function Row(props) {
         }
         props.onSelectionChange(rowEl, props.data, props.index);
     };
+
+    const className = useMemo(() => {
+        return 'custom-scroll-list-row-container' + (isSelected ? ' active' : '');
+    }, [ isSelected ]);
     return (
         <div
-            className="custom-scroll-list-row-container"
+            className={className}
             style={style}
             onClick={onClick}
         >
