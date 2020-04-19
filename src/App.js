@@ -46,11 +46,13 @@ function App(props) {
     <div className="App">
       <Helmet>
           <title>{appData.title}</title>
-          <meta property="og:url" content={window.location.origin} />
-          <meta property="og:title" content={appData.title} />
-          <meta property="og:description" content={appData.description} />
+          <meta name="url" property="og:url" content={window.location.origin} />
+          <meta name="title" property="og:title" content={appData.title} />
+          <meta property="og:type" content="website" />
+          <meta name="description" property="og:description" content={appData.description} />
           <meta name="description" content={appData.description} />
-          <meta property="og:image" content={ogImage} />
+          <meta name="image" property="og:image" content={ogImage} />
+          <meta name="author" content="Jaswanth Sai Sattenapalli" />
       </Helmet>
       <DataTable
         columns={columns}
